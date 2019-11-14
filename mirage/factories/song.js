@@ -2,7 +2,7 @@ import { Factory, association } from 'ember-cli-mirage';
 import faker from 'faker';
 
 export default Factory.extend({
-    title(i) {
+    title() {
         return `Song ${faker.random.words(2)}`;
     },
     artistName() {
