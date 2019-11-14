@@ -8,7 +8,6 @@ const Router = EmberRouter.extend({
 
 Router.map(function() {
   this.route('collections');
-  this.route('collection', { path: '/collection/:id' });
   this.route('songs');
 });
 
