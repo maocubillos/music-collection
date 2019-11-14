@@ -23,4 +23,13 @@ export default function() {
 
     https://www.ember-cli-mirage.com/docs/route-handlers/shorthands
   */
+
+  this.get('/collections');
+  this.get('/collections/:id', (schema, request) => {
+    return schema.collections.find(request.params.id);
+  });
+  this.get('/songs', (schema) => {
+    return schema.songs.all();
+  });
+  this.post('/songs');
 }

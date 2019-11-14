@@ -1,9 +1,10 @@
-export default function(/* server */) {
+export default function( server ) {
 
-  /*
-    Seed your development database using your factories.
-    This data will not be loaded in your tests.
-  */
+  const collection = server.create('collection')
 
-  // server.createList('post', 10);
+  server.createList('song', 10, { collection } )
+
+  // server.createList('collection', 3).forEach((collection) => {
+  //   server.createList('song', 100, collection);
+  // });
 }
