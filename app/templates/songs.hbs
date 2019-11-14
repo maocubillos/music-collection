@@ -1,5 +1,5 @@
 <h2>Songs</h2>
-{{#paper-form onSubmit=(action "basicSubmitAction") as |form|}}
+{{#paper-form onSubmit=(action "submitSong") as |form|}}
   <div class="layout-row">
     <div class="layout-column flex-100">
       {{form.input label="Title" value=title onChange=(action (mut title)) required=true}}
