@@ -1,1 +1,10 @@
+$primary: "red";
+$accent: "deep-orange";
+$warn: "orange";
 @import 'ember-paper';
+
+.md-button {
+    > a, a:hover, a:active, a:visited {
+        text-decoration: none;
+    }
+}

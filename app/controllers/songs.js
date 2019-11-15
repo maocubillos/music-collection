@@ -3,6 +3,7 @@ import { computed } from '@ember/object';
 import { A } from '@ember/array';
 
 export default Controller.extend({
+    creatingSong: false,
     newSong: computed(
         'title',
         'artistName',
@@ -31,6 +32,9 @@ export default Controller.extend({
         },
         goToSongDetail(songId) {
             this.transitionToRoute('song', {id: songId})
+        },
+        toggleSongForm() {
+            this.toggleProperty('creatingSong');
         }
     }
 });
