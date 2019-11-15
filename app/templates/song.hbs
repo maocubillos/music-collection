@@ -1,27 +1,27 @@
-<h2>Song Details</h2>
-{{#paper-form as |form|}}
+<h2>Song Details {{model.title}}</h2> selectedGenre:{{selectedGenre.name}}
+{{#paper-form onSubmit=(action "updateSong") as |form|}}
   <div class="layout-row">
     <div class="layout-column flex-100">
-      {{form.input label="Title" value=model.title onChange=(action (mut title)) required=true}}
+      {{form.input label="Title" value=model.title onChange=(action (mut model.title)) required=true}}
     </div>
   </div>
   <div class="layout-row">
     <div class="layout-column flex-50">
-      {{form.input label="Artist Name" value=model.artistName onChange=(action (mut artistName))}}
-      {{form.input label="Album Name" value=model.albumName onChange=(action (mut albumName))}}
-      {{form.input type="url" label="Album Cover" value=model.albumCover onChange=(action (mut albumCover))}}
+      {{form.input label="Artist Name" value=model.artistName onChange=(action (mut model.artistName))}}
+      {{form.input label="Album Name" value=model.albumName onChange=(action (mut model.albumName))}}
+      {{form.input type="url" label="Album Cover" value=model.albumCover onChange=(action (mut model.albumCover))}}
     </div>
     <div class="layout-column flex-50">
       {{#paper-select
         label="Genre"
-        options=[ 'Classic', 'Rock', 'Reguetton' ]
-        selected=model.genres
-        onChange=(action (mut model.genres))
+        options=genres
+        selected=selectedGenre
+        onChange=(action (mut selectedGenre))
         as |genre|}}
-        {{model.genres}}
+        {{genre.name}}
       {{/paper-select}}
-      {{form.input type="number" label="Year of release" value=model.year onChange=(action (mut year)) min=1500 max=2019}}
-      {{form.input type="url" label="Spotify link" value=model.linkSpotify onChange=(action (mut spotifyLink))}}
+      {{form.input type="number" label="Year of release" value=model.year onChange=(action (mut model.year)) min=1500 max=2019}}
+      {{form.input type="url" label="Spotify link" value=model.linkSpotify onChange=(action (mut model.linkSpotify))}}
     </div>
   </div>
   <div class="layout-row">

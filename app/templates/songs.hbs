@@ -21,7 +21,7 @@
         {{genre.name}}
       {{/paper-select}}
       {{form.input type="number" label="Year of release" value=year onChange=(action (mut year)) min=1500 max=2019}}
-      {{form.input type="url" label="Spotify link" value=spotifyLink onChange=(action (mut spotifyLink))}}
+      {{form.input type="url" label="Spotify link" value=linkSpotify onChange=(action (mut linkSpotify))}}
     </div>
   </div>
   <div class="layout-row">
@@ -31,12 +31,12 @@
 {{paper-divider}}
 {{#paper-list}}
   {{#paper-subheader}}Songs{{/paper-subheader}}
-  {{#each model as |songs|}}
+  {{#each model as |song|}}
     {{#paper-item class="md-2-line" as |controls|}}
       {{paper-icon "play_circle_filled" class="md-avatar-icon"}}
       <div class="md-list-item-text">
-        <h3>{{songs.title}}</h3>
-        <p>{{songs.artistName}}</p>
+        <h3><LinkTo @route="song" @model={{song}}>{{song.title}}</LinkTo></h3>
+        <p>{{song.artistName}}</p>
       </div>
       {{#controls.button secondary=true iconButton=true }}
         {{paper-icon "edit"}}

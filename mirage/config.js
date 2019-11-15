@@ -34,5 +34,6 @@ export default function() {
   this.get('/songs/:id', (schema, request) => {
     return schema.songs.find(request.params.id);
   });
+  this.patch('/songs/:id');
   this.post('/songs');
 }
