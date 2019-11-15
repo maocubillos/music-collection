@@ -24,11 +24,22 @@ export default Controller.extend({
             };
         }
     ),
+    resetForm() {
+        this.set('title', null);
+        this.set('artistName', null);
+        this.set('albumName', null);
+        this.set('albumCover', null);
+        this.set('selectedGenre.name', null);
+        this.set('year', null);
+        this.set('linkSpotify', null);
+    },
     genres: A([ { name:'Classic' }, { name: 'Rock'}, { name: 'Reguetton' } ]),
     actions: {
         submitSong() {
             const newSong = this.get('store').createRecord('song', this.get('newSong'));
             newSong.save();
+            this.resetForm();
+            this.send('toggleSongForm');
         },
         goToSongDetail(songId) {
             this.transitionToRoute('song', {id: songId})
