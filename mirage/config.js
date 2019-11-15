@@ -31,5 +31,8 @@ export default function() {
   this.get('/songs', (schema) => {
     return schema.songs.all();
   });
+  this.get('/songs/:id', (schema, request) => {
+    return schema.songs.find(request.params.id);
+  });
   this.post('/songs');
 }

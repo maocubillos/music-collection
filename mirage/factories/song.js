@@ -16,14 +16,14 @@ export default Factory.extend({
 
         return genres[i % genres.length];
     },
-    albumCover(i) {
-        return `albumCover ${i}`;
+    albumCover() {
+        return faker.image.imageUrl();
     },
     year() {
-        return faker.date.past().toLocaleDateString();
+        return faker.date.past(10).getFullYear();
     },
-    link() {
-        return faker.system.filePath();
+    linkSpotify() {
+        return faker.internet.url();
     },
     collection: association()
 });

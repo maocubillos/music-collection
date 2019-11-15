@@ -1,0 +1,30 @@
+<h2>Song Details</h2>
+{{#paper-form as |form|}}
+  <div class="layout-row">
+    <div class="layout-column flex-100">
+      {{form.input label="Title" value=model.title onChange=(action (mut title)) required=true}}
+    </div>
+  </div>
+  <div class="layout-row">
+    <div class="layout-column flex-50">
+      {{form.input label="Artist Name" value=model.artistName onChange=(action (mut artistName))}}
+      {{form.input label="Album Name" value=model.albumName onChange=(action (mut albumName))}}
+      {{form.input type="url" label="Album Cover" value=model.albumCover onChange=(action (mut albumCover))}}
+    </div>
+    <div class="layout-column flex-50">
+      {{#paper-select
+        label="Genre"
+        options=[ 'Classic', 'Rock', 'Reguetton' ]
+        selected=model.genres
+        onChange=(action (mut model.genres))
+        as |genre|}}
+        {{model.genres}}
+      {{/paper-select}}
+      {{form.input type="number" label="Year of release" value=model.year onChange=(action (mut year)) min=1500 max=2019}}
+      {{form.input type="url" label="Spotify link" value=model.linkSpotify onChange=(action (mut spotifyLink))}}
+    </div>
+  </div>
+  <div class="layout-row">
+    {{#form.submit-button raised=true primary=true}}Submit{{/form.submit-button}}
+  </div>
+{{/paper-form}}

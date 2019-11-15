@@ -9,6 +9,7 @@ const Router = EmberRouter.extend({
 Router.map(function() {
   this.route('collections');
   this.route('songs');
+  this.route('song', { path: 'song/:id'});
 });
 
 export default Router;
