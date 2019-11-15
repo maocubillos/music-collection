@@ -1,16 +1,16 @@
 {{#paper-toolbar as |toolbar|}}
-   {{#toolbar.tools}}
-     {{#paper-button}}
-       <LinkTo @route="index">Go Home</LinkTo>
-     {{/paper-button}}
-     <h1>FireCollections</h1>
-     <span class="flex"></span>
-     {{#paper-button raised=true primary=true}}
+  {{#toolbar.tools}}
+    {{#paper-button}}
+      <LinkTo @route="index">Go Home</LinkTo>
+    {{/paper-button}}
+    <h1>FireCollections</h1>
+    <span class="flex"></span>
+    {{#paper-button raised=true primary=true}}
       <LinkTo @route="songs">My Collection</LinkTo>
-     {{/paper-button}}
+    {{/paper-button}}
     {{paper-icon "whatshot" size=64}}
-   {{/toolbar.tools}}
- {{/paper-toolbar}}
+  {{/toolbar.tools}}
+{{/paper-toolbar}}
 <div class="layout-row layout-align-center-stretch">
   <div class="flex-70">
     {{#paper-card as |card|}}

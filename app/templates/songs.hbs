@@ -6,36 +6,36 @@
 {{/unless}}
 
 {{#if creatingSong}}
-{{#paper-form onSubmit=(action "submitSong") as |form|}}
-  <div class="layout-row">
-    <div class="layout-column flex-100">
-      {{form.input label="Title" value=title onChange=(action (mut title)) required=true}}
+  {{#paper-form onSubmit=(action "submitSong") as |form|}}
+    <div class="layout-row">
+      <div class="layout-column flex-100">
+        {{form.input label="Title" value=title onChange=(action (mut title)) required=true}}
+      </div>
     </div>
-  </div>
-  <div class="layout-row">
-    <div class="layout-column flex-50">
-      {{form.input label="Artist Name" value=artistName onChange=(action (mut artistName)) required=true}}
-      {{form.input label="Album Name" value=albumName onChange=(action (mut albumName)) required=true}}
-      {{form.input type="url" label="Album Cover" value=albumCover onChange=(action (mut albumCover)) required=true}}
+    <div class="layout-row">
+      <div class="layout-column flex-50">
+        {{form.input label="Artist Name" value=artistName onChange=(action (mut artistName)) required=true}}
+        {{form.input label="Album Name" value=albumName onChange=(action (mut albumName)) required=true}}
+        {{form.input type="url" label="Album Cover" value=albumCover onChange=(action (mut albumCover)) required=true}}
+      </div>
+      <div class="layout-column flex-50">
+        {{#paper-select
+          label="Genre"
+          options=genres
+          selected=selectedGenre
+          onChange=(action (mut selectedGenre))
+          as |genre|}}
+          {{genre.name}}
+        {{/paper-select}}
+        {{form.input type="number" label="Year of release" value=year onChange=(action (mut year)) min=1500 max=2019}}
+        {{form.input type="url" label="Spotify link" value=linkSpotify onChange=(action (mut linkSpotify))}}
+      </div>
     </div>
-    <div class="layout-column flex-50">
-      {{#paper-select
-        label="Genre"
-        options=genres
-        selected=selectedGenre
-        onChange=(action (mut selectedGenre))
-        as |genre|}}
-        {{genre.name}}
-      {{/paper-select}}
-      {{form.input type="number" label="Year of release" value=year onChange=(action (mut year)) min=1500 max=2019}}
-      {{form.input type="url" label="Spotify link" value=linkSpotify onChange=(action (mut linkSpotify))}}
+    <div class="layout-row">
+      {{#form.submit-button raised=true accent=true}}Create Song{{/form.submit-button}}
+      {{#paper-button accent=true onClick=(action "toggleSongForm")}} Cancel {{/paper-button}}
     </div>
-  </div>
-  <div class="layout-row">
-    {{#form.submit-button raised=true accent=true}}Create Song{{/form.submit-button}}
-    {{#paper-button accent=true onClick=(action "toggleSongForm")}} Cancel {{/paper-button}}
-  </div>
-{{/paper-form}}
+  {{/paper-form}}
 {{/if}}
 
 {{paper-divider}}

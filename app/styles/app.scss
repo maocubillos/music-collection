@@ -1,7 +1,43 @@
-$primary: "red";
+$primary: (
+    '50' : #ffe7ea,
+    '100' : #ffc3cb,
+    '200' : #ff9ca8,
+    '300' : #ff7485,
+    '400' : #ff566a,
+    '500' : #ff3850,
+    '600' : #ff3249,
+    '700' : #ff2b40,
+    '800' : #ff2437,
+    '900' : #ff1727,
+    'A100' : #ffffff,
+    'A200' : #fffcfd,
+    'A400' : #ffc9cc,
+    'A700' : #ffb0b4,
+    'contrast': #ffffff,
+  'contrastDefaultColor': #ffffff,
+  'contrastLightColors': ('500', '600', '700', '800', '900'),
+  'contrastStrongLightColors': ('500', '600', '700')
+);
 $accent: "deep-orange";
 $warn: "orange";
 @import 'ember-paper';
+
+md-card{
+    color: #121925;
+}
+
+.home-container {
+    text-align: center;
+    .logo-container {
+        max-height: 32rem;
+        overflow: hidden;
+        background: #ff3850;
+        border-radius: 30% 6%;
+        md-icon {
+            color: white;
+        }
+    }
+}
 
 .md-button {
     > a, a:hover, a:active, a:visited {
